@@ -14,7 +14,9 @@
         "basedir": ".",
         "debug": true,
         "cache": {},
-        "packageCache": {}
+        "packageCache": {},
+        "ignoreMissing": false,
+        "require": []
     },
     "babel": {
         "extensions": [
