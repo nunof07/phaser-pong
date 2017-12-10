@@ -57,7 +57,7 @@
     "watchify": "^3.9.0"
   },
   "dependencies": {
-    "smalltypes": "^0.1.0"
+    "smalltypes": "^0.3.0"
   },
   "browserify-shim": {
     "smalltypes": "global:smalltypes"
