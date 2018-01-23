@@ -19,6 +19,14 @@
             }
         ],
         "no-backbone-get-set-outside-model": false,
-        "unified-signatures": false
+        "unified-signatures": false,
+        "completed-docs": false,
+        "missing-jsdoc": false,
+        "no-submodule-imports": [
+            true,
+            "@main/entities",
+            "@main/states"
+        ],
+        "no-implicit-dependencies": false // disable because path mappings are erroneously flagged
     }
 }

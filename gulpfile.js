@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var tslint = require('tslint');
 var browserify = require('browserify');
-var browserifyShim = require('browserify-shim');
 var source = require('vinyl-source-stream');
 var tsify = require('tsify');
 var watchify = require('watchify');
@@ -16,7 +15,6 @@ var watchedBrowserify =
     watchify(
         browserify(config.browserify)
             .plugin(tsify)
-            .transform(browserifyShim)
             .transform(babelify, config.babel)
     )
     .on('update', build)

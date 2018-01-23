@@ -1,15 +1,14 @@
 {
-    "main": "src/remake/main/main.ts",
+    "main": "src/main/main.ts",
     "dist": "dist",
     "bundle": "game.js",
-    "src": "src/remake/**/*.ts",
-    "test": "src/remake/test/**/*Test.ts",
+    "src": "src/**/*.ts",
+    "test": "src/test/**/*Test.ts",
     "copy": [
-        "src/index.html",
-        "src/assets/**/*",
+        "src/main/index.html",
+        "src/main/assets/**/*",
         "node_modules/phaser-ce/build/phaser.min.js",
-        "node_modules/phaser-ce/build/phaser.map",
-        "node_modules/smalltypes/dist/smalltypes.js"
+        "node_modules/phaser-ce/build/phaser.map"
     ],
     "browserify": {
         "basedir": ".",

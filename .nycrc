@@ -1,10 +1,9 @@
 {
     "include": [
-        "src/remake/main/**/*.ts"
+        "src/**/*.ts"
     ],
     "extension": [
-        ".ts",
-        ".tsx"
+        ".ts"
     ],
     "exclude": [
         "**/index.ts",
