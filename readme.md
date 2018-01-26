@@ -8,36 +8,13 @@ Pong game made with [Phaser](http://phaser.io/). Written in [TypeScript](https:/
 - Install npm.
 - Run `npm install` to install dependencies.
 
-## Run/build
+## Tasks
 
-- Start: `gulp` or `npm start`.
-    - Default task will build, start server and watch for changes.
-    - Main file will automatically open in the browser.
-- Lint: `gulp tslint` or `npm run lint`. Runs automatically with default task.
-- Test: `gulp test` or `npm run test`. Runs automatically with default task.
-- Test coverage: `npm run coverage`.
+- `gulp dev`: build, start server and watch for changes.
+- `gulp build`: build and copy files to destination.
+- `gulp run`: start server.
 
-## Config
-
-See files in root.
-
-## Development notes
-
-### Module resolution
-
-Use absolute paths to import modules. Inform TypeScript and Babel how to resolve these paths.
-
-For TypeScript:
-
-- Open file `tsconfig.json`.
-- Configure variables `compilerOptions.baseUrl` and `compilerOptions.paths`.
-
-For Babel:
-
-- Open file `.babelrc`.
-- Configure variables `root` and `alias` for `module-resolver` under `plugins`.
-
-More info on [Using absolute paths with TypeScript, Babel and Browserify](http://www.broculos.net/2017/10/using-absolute-paths-with-typescript.html#.WfDAmWhSyUk).
+See `package.json` and `gulpfile.babel.js` for other tasks.
 
 ## Credits
 

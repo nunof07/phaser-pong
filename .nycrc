@@ -1,11 +1,14 @@
 {
     "include": [
-        "src/**/*.ts"
+        "src/main/**/*.ts"
     ],
     "extension": [
         ".ts"
     ],
     "exclude": [
+        "dist",
+        "typings",
+        "src/test",
         "**/index.ts",
         "**/*.d.ts"
     ],
@@ -18,5 +21,7 @@
     "reporter": [
         "text"
     ],
-    "all": true
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
 }

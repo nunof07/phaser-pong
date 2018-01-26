@@ -4,9 +4,11 @@
   "description": "",
   "main": "dist/game.js",
   "scripts": {
-    "start": "gulp",
-    "lint": "gulp tslint",
-    "test": "mocha --opts mocha.opts src/remake/test/**/*Test.ts",
+    "start": "gulp run",
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "lint": "tslint --config tslint.json --project tsconfig.json --format stylish src/**/*.ts",
+    "test": "mocha --opts mocha.opts",
     "coverage": "nyc npm run test"
   },
   "author": {
@@ -19,25 +21,21 @@
   },
   "devDependencies": {
     "@types/chai": "^4.0.5",
-    "@types/chai-arrays": "^1.0.2",
     "@types/core-js": "^0.9.43",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.53",
-    "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
-    "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
     "chai": "^4.1.2",
-    "chai-arrays": "^2.0.0",
     "gulp": "^3.9.1",
+    "gulp-batch": "^1.0.5",
+    "gulp-cached": "^1.1.1",
     "gulp-connect": "^5.0.0",
-    "gulp-load-plugins": "^1.5.0",
     "gulp-mocha": "^4.3.1",
     "gulp-open": "^2.0.0",
+    "gulp-plumber": "^1.2.0",
     "gulp-sequence": "^0.4.6",
     "gulp-tslint": "^8.1.2",
-    "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
@@ -46,13 +44,10 @@
     "source-map-support": "^0.5.0",
     "ts-node": "^3.3.0",
     "tsconfig-paths": "^2.4.0",
-    "tsify": "^3.0.3",
     "tslint": "^5.7.0",
     "tslint-microsoft-contrib": "^5.0.1",
     "typescript": "^2.6.1",
-    "typings": "^2.1.1",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.9.0"
+    "typings": "^2.1.1"
   },
   "dependencies": {
     "phaser-ce": "^2.10.0"
