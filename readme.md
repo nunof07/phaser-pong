@@ -2,6 +2,8 @@
 
 Pong game made with [Phaser](http://phaser.io/). Written in [TypeScript](https://www.typescriptlang.org/). Development playground to test various packages and ideas.
 
+[Play](https://nunof07.github.io/phaser-pong/dist).
+
 ## Setup
 
 - Clone repo.
