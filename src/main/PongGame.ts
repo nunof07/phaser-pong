@@ -2,8 +2,11 @@ import { BootState } from '@main/states/BootState';
 import { GameState } from '@main/states/GameState';
 import { PreloaderState } from '@main/states/PreloaderState';
 
+/**
+ * Pong game, main entry point.
+ */
 export class PongGame {
-    private game: Phaser.Game;
+    private readonly game: Phaser.Game;
 
     constructor() {
         this.game = new Phaser.Game({

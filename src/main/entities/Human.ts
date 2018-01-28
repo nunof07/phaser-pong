@@ -2,10 +2,13 @@ import { Paddle } from '@main/entities/Paddle';
 import { Player } from '@main/entities/Player';
 import { Score } from '@main/entities/Score';
 
+/**
+ * Human player.
+ */
 export class Human implements Player {
-    private state: Phaser.State;
-    private paddleObj: Paddle;
-    private scoreObj: Score;
+    private readonly state: Phaser.State;
+    private readonly paddleObj: Paddle;
+    private readonly scoreObj: Score;
 
     constructor(state: Phaser.State, paddle: Paddle, score: Score = new Score(state)) {
         this.state = state;

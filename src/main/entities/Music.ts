@@ -1,5 +1,8 @@
+/**
+ * Music.
+ */
 export class Music {
-    private state: Phaser.State;
+    private readonly state: Phaser.State;
     private sound: Phaser.Sound;
 
     constructor(state: Phaser.State) {

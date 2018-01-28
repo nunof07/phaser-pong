@@ -1,5 +1,8 @@
+/**
+ * Keep tabs of score.
+ */
 export class Score {
-    private state: Phaser.State;
+    private readonly state: Phaser.State;
     private bitmap: Phaser.BitmapText;
     private value: number;
 

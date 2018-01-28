@@ -1,3 +1,6 @@
+/**
+ * Boot state. Setup graphics mode and start preloader.
+ */
 export class BootState extends Phaser.State {
     constructor() {
         super();

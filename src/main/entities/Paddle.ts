@@ -1,6 +1,9 @@
+/**
+ * Paddle.
+ */
 export class Paddle {
+    private readonly state: Phaser.State;
     private phaserSprite: Phaser.Sprite;
-    private state: Phaser.State;
     private minY: number;
     private maxY: number;
 

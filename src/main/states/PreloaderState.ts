@@ -1,3 +1,6 @@
+/**
+ * Load game assets.
+ */
 export class PreloaderState extends Phaser.State {
     constructor() {
         super();

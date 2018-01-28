@@ -3,12 +3,15 @@ import { Paddle } from '@main/entities/Paddle';
 import { Player } from '@main/entities/Player';
 import { Score } from '@main/entities/Score';
 
+/**
+ * Computer player.
+ */
 export class Computer implements Player {
-    private state: Phaser.State;
-    private paddleObj: Paddle;
-    private ball: Ball;
-    private maxVelocity: number;
-    private scoreObj: Score;
+    private readonly state: Phaser.State;
+    private readonly paddleObj: Paddle;
+    private readonly ball: Ball;
+    private readonly maxVelocity: number;
+    private readonly scoreObj: Score;
 
     constructor(
         state: Phaser.State,

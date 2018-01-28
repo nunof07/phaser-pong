@@ -2,6 +2,9 @@ import { Randomizer } from '@main/Randomizer';
 import { expect } from 'chai';
 import { suite, test } from 'mocha-typescript';
 
+/**
+ * {@link Randomizer} test cases.
+ */
 @suite
 export class RandomizerTest {
     @test

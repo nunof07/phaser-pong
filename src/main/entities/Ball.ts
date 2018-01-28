@@ -1,11 +1,14 @@
 import { Randomizer } from '@main/Randomizer';
 
+/**
+ * Ball.
+ */
 export class Ball {
-    private state: Phaser.State;
+    private readonly state: Phaser.State;
+    private readonly velocity: number;
+    private readonly randomizer: Randomizer;
     private phaserSprite: Phaser.Sprite;
     private isLaunched: boolean;
-    private velocity: number;
-    private randomizer: Randomizer;
     private goLeft: boolean;
 
     constructor(

@@ -5,10 +5,13 @@ import { Music } from '@main/entities/Music';
 import { Paddle } from '@main/entities/Paddle';
 import { Player } from '@main/entities/Player';
 
+/**
+ * Main game state.
+ */
 export class GameState extends Phaser.State {
-    private players: Player[];
-    private ball: Ball;
-    private music: Music;
+    private readonly players: ReadonlyArray<Player>;
+    private readonly ball: Ball;
+    private readonly music: Music;
 
     constructor() {
         super();
