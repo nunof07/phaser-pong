@@ -16,4 +16,4 @@ gulp.task('lint', () => lint(config));
 gulp.task('run', () => run(config));
 gulp.task('test', () => test(config));
 gulp.task('test:watch', () => watch(config.paths.test, ['lint', 'test']));
-gulp.task('dev', ['build', 'copy:watch', 'js:watch', 'test:watch', 'run']);
+gulp.task('dev', ['copy:watch', 'js:watch', 'test:watch', 'run']);

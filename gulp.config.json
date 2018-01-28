@@ -11,7 +11,7 @@
             "node_modules/phaser-ce/build/phaser.map"
         ],
         "destination": "dist",
-        "bundle": "game.js"
+        "bundle": "game.min.js"
     },
     "tslint": {
         "options": {
@@ -29,5 +29,9 @@
             "tsconfig-paths/register",
             "source-map-support/register"
         ]
+    },
+    "rollup": {
+        "name": "pong",
+        "format": "iife"
     }
 }
