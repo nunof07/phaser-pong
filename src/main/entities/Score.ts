@@ -1,3 +1,5 @@
+import * as Phaser from 'phaser-ce';
+
 /**
  * Keep tabs of score.
  */

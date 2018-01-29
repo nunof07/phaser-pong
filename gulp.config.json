@@ -32,6 +32,10 @@
     },
     "rollup": {
         "name": "pong",
-        "format": "iife"
+        "format": "iife",
+        "external": ["phaser-ce"],
+        "globals": {
+            "phaser-ce": "Phaser"
+        }
     }
 }

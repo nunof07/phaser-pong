@@ -1,3 +1,5 @@
+import * as Phaser from 'phaser-ce';
+
 /**
  * Boot state. Setup graphics mode and start preloader.
  */

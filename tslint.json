@@ -39,6 +39,7 @@
             "@main"
         ],
         "no-implicit-dependencies": false, // disable because custom local path mappings are erroneously flagged
+        "no-duplicate-imports": false,
 
         // replace deprecated rules with newer versions
         "no-duplicate-case": false,

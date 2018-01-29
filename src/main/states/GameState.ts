@@ -4,6 +4,7 @@ import { Human } from '@main/entities/Human';
 import { Music } from '@main/entities/Music';
 import { Paddle } from '@main/entities/Paddle';
 import { Player } from '@main/entities/Player';
+import * as Phaser from 'phaser-ce';
 
 /**
  * Main game state.

@@ -1,4 +1,5 @@
 import { Randomizer } from '@main/Randomizer';
+import * as Phaser from 'phaser-ce';
 
 /**
  * Ball.

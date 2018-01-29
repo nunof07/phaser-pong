@@ -2,6 +2,7 @@ import { Ball } from '@main/entities/Ball';
 import { Paddle } from '@main/entities/Paddle';
 import { Player } from '@main/entities/Player';
 import { Score } from '@main/entities/Score';
+import * as Phaser from 'phaser-ce';
 
 /**
  * Computer player.

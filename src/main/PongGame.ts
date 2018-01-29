@@ -1,6 +1,7 @@
 import { BootState } from '@main/states/BootState';
 import { GameState } from '@main/states/GameState';
 import { PreloaderState } from '@main/states/PreloaderState';
+import * as Phaser from 'phaser-ce';
 
 /**
  * Pong game, main entry point.
