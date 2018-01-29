@@ -1,6 +1,13 @@
-import { PongGame } from '@main/PongGame';
+import { Pong } from '@main/PongGame';
 
 /**
- * Start game.
+ * Start pong.
  */
-new PongGame().start();
+new Pong(
+    new Phaser.Game({
+        width: 1024,
+        height: 576,
+        renderer: Phaser.AUTO,
+        parent: 'game-container'
+    })
+).start();
