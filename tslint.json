@@ -80,7 +80,7 @@
         "readonly-keyword": false,
         "readonly-array": true,
         "no-let": [true, "ignore-local"],
-        "no-object-mutation": [true, { "ignore-prefix": ["this."] }],
+        "no-object-mutation": false,
         "no-delete": true,
         "no-mixed-interface": false,
         "no-this": false,
