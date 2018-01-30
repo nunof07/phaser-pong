@@ -1,12 +1,13 @@
-import { scale } from '@main/phaser/scale';
+import { MaybeScaleManager } from '@main/phaser/scale/MaybeScaleManager';
+import { scaleManager } from '@main/phaser/scale/scaleManager';
 import * as Phaser from 'phaser-ce';
 
 /**
  * Modify scale manager to resize display to fit screen while keeping things proportional.
- * @param maybeScale ScaleManager or Game.
+ * @param maybeScale ScaleManager or has ScaleManager.
  */
-export function scaleToFitScreen(maybeScale: Phaser.ScaleManager | Phaser.State | Phaser.Game): Phaser.ScaleManager {
-    const manager: Phaser.ScaleManager = scale(maybeScale);
+export function scaleToFitScreen(maybeScale: MaybeScaleManager): Phaser.ScaleManager {
+    const manager: Phaser.ScaleManager = scaleManager(maybeScale);
 
     manager.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     manager.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;

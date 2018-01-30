@@ -1,10 +1,11 @@
+import { MaybeScaleManager } from '@main/phaser/scale/MaybeScaleManager';
 import * as Phaser from 'phaser-ce';
 
 /**
  * Resolve scale manager.
- * @param maybeScale ScaleManager or Game.
+ * @param maybeScale ScaleManager or has ScaleManager.
  */
-export function scale(maybeScale: Phaser.ScaleManager | Phaser.State | Phaser.Game): Phaser.ScaleManager {
+export function scaleManager(maybeScale: MaybeScaleManager): Phaser.ScaleManager {
     if (maybeScale instanceof Phaser.ScaleManager) {
         return maybeScale;
     } else if (maybeScale instanceof Phaser.State) {

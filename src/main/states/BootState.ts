@@ -1,5 +1,5 @@
-import { scaleToFitScreen } from '@main/phaser/scaleToFitScreen';
-import { sharpPixels } from '@main/phaser/sharpPixels';
+import { sharpPixels } from '@main/phaser/render/sharpPixels';
+import { scaleToFitScreen } from '@main/phaser/scale/scaleToFitScreen';
 import * as Phaser from 'phaser-ce';
 
 /**
