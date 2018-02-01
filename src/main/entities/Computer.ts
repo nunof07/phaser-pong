@@ -19,7 +19,7 @@ export class Computer implements Player {
         paddle: Paddle,
         ball: Ball,
         maxVelocity: number = 250,
-        score: Score = new Score(state)
+        score: Score = new Score(state),
     ) {
         this.state = state;
         this.paddleObj = paddle;

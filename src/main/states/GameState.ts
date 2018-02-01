@@ -19,7 +19,7 @@ export class GameState extends Phaser.State {
         this.ball = new Ball(this);
         this.players = [
             new Human(this, new Paddle(this)),
-            new Computer(this, new Paddle(this), this.ball)
+            new Computer(this, new Paddle(this), this.ball),
         ];
         this.music = new Music(this);
     }
@@ -33,10 +33,10 @@ export class GameState extends Phaser.State {
         this.game.input.onDown.add(
             () => {
                 this.music.toggle(
-                    this.ball.toggle()
+                    this.ball.toggle(),
                 );
             },
-            this
+            this,
         );
     }
 
@@ -46,7 +46,7 @@ export class GameState extends Phaser.State {
             this.game.physics.arcade.collide(
                 player.paddle.sprite,
                 this.ball.sprite,
-                () => this.game.sound.play('hit')
+                () => this.game.sound.play('hit'),
             );
         });
 

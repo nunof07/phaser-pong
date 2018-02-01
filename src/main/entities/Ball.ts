@@ -16,7 +16,7 @@ export class Ball {
         state: Phaser.State,
         velocity: number = 400,
         goLeft: boolean = true,
-        randomizer: Randomizer = new Randomizer()
+        randomizer: Randomizer = new Randomizer(),
     ) {
         this.state = state;
         this.velocity = velocity;

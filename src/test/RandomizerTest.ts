@@ -9,7 +9,7 @@ describe('Randomizer', () => {
         it('should return a boolean', () => {
             expect(new Randomizer().bool())
                 .to.satisfy((result: boolean): boolean =>
-                    result === true || result === false
+                    result === true || result === false,
                 );
         });
     });

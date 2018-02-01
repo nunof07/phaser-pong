@@ -40,6 +40,7 @@
         ],
         "no-implicit-dependencies": false, // disable because custom local path mappings are erroneously flagged
         "no-duplicate-imports": false,
+        "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
 
         // replace deprecated rules with newer versions
         "no-duplicate-case": false,
