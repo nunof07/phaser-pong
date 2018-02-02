@@ -1,5 +1,5 @@
-import { MaybeStateManager } from '@main/phaser/state/MaybeStateManager';
-import { stateManager } from '@main/phaser/state/stateManager';
+import { MaybeStateManager } from '@main/core/state/MaybeStateManager';
+import { stateManager } from '@main/core/state/stateManager';
 import * as Phaser from 'phaser-ce';
 
 /**

@@ -1,6 +1,6 @@
-import { LoadDefinition } from '@main/phaser/load/LoadDefinition';
-import { loader } from '@main/phaser/load/loader';
-import { MaybeLoader } from '@main/phaser/load/MaybeLoader';
+import { LoadDefinition } from '@main/core/load/LoadDefinition';
+import { loader } from '@main/core/load/loader';
+import { MaybeLoader } from '@main/core/load/MaybeLoader';
 import * as Phaser from 'phaser-ce';
 
 /**

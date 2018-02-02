@@ -1,4 +1,4 @@
-import { MaybeLoader } from '@main/phaser/load/MaybeLoader';
+import { MaybeLoader } from '@main/core/load/MaybeLoader';
 import * as Phaser from 'phaser-ce';
 
 /**

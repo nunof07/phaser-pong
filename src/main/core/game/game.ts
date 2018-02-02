@@ -1,4 +1,4 @@
-import { MaybeGame } from '@main/phaser/game/MaybeGame';
+import { MaybeGame } from '@main/core/game/MaybeGame';
 import * as Phaser from 'phaser-ce';
 
 /**

@@ -1,5 +1,5 @@
-import { MaybeScaleManager } from '@main/phaser/scale/MaybeScaleManager';
-import { scaleManager } from '@main/phaser/scale/scaleManager';
+import { MaybeScaleManager } from '@main/core/scale/MaybeScaleManager';
+import { scaleManager } from '@main/core/scale/scaleManager';
 import * as Phaser from 'phaser-ce';
 
 /**

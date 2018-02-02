@@ -1,5 +1,5 @@
 import { Game } from '@main/core/Game';
-import { addState } from '@main/phaser/state/addState';
+import { addState } from '@main/core/state/addState';
 import * as Phaser from 'phaser-ce';
 
 /**

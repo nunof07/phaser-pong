@@ -1,5 +1,5 @@
-import { game } from '@main/phaser/game/game';
-import { MaybeGame } from '@main/phaser/game/MaybeGame';
+import { game } from '@main/core/game/game';
+import { MaybeGame } from '@main/core/game/MaybeGame';
 import * as Phaser from 'phaser-ce';
 
 /**

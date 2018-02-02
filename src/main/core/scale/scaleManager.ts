@@ -1,4 +1,4 @@
-import { MaybeScaleManager } from '@main/phaser/scale/MaybeScaleManager';
+import { MaybeScaleManager } from '@main/core/scale/MaybeScaleManager';
 import * as Phaser from 'phaser-ce';
 
 /**

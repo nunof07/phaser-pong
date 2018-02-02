@@ -1,7 +1,7 @@
-import { load } from '@main/phaser/load/load';
-import { LoadDefinition } from '@main/phaser/load/LoadDefinition';
-import { sharpPixels } from '@main/phaser/render/sharpPixels';
-import { scaleToFitScreen } from '@main/phaser/scale/scaleToFitScreen';
+import { load } from '@main/core/load/load';
+import { LoadDefinition } from '@main/core/load/LoadDefinition';
+import { sharpPixels } from '@main/core/render/sharpPixels';
+import { scaleToFitScreen } from '@main/core/scale/scaleToFitScreen';
 import * as Phaser from 'phaser-ce';
 
 /**
