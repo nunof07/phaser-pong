@@ -27,7 +27,7 @@ export class PongMusic implements Music {
         return this;
     }
 
-    public update(): void {
-        // Nothing to do
+    public update(): this {
+        return this;
     }
 }

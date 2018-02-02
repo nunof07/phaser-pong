@@ -2,5 +2,5 @@
  * Game entity.
  */
 export interface Entity {
-    update(): void;
+    update(): this;
 }

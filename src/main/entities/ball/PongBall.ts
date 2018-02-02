@@ -1,4 +1,4 @@
-import { randomBool } from '@main/core/random//randomBool';
+import { randomBool } from '@main/core/random/randomBool';
 import { Ball } from '@main/entities/ball/Ball';
 import * as Phaser from 'phaser-ce';
 
@@ -50,9 +50,11 @@ export class PongBall implements Ball {
         return this.collision;
     }
 
-    public update(): void {
+    public update(): this {
         if (!this.body.blocked.none) {
             this.collision.dispatch(this.body.blocked);
         }
+
+        return this;
     }
 }

@@ -20,7 +20,7 @@ export class PongScore implements Score {
         return this;
     }
 
-    public update(): void {
-        // Nothing to do
+    public update(): this {
+        return this;
     }
 }
