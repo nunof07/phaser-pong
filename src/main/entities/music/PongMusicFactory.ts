@@ -6,13 +6,13 @@ import * as Phaser from 'phaser-ce';
  * Create a music.
  */
 export class PongMusicFactory implements Factory {
-    private readonly game: Phaser.Game;
+    private readonly factory: Phaser.GameObjectFactory;
 
-    constructor(game: Phaser.Game) {
-        this.game = game;
+    constructor(factory: Phaser.GameObjectFactory) {
+        this.factory = factory;
     }
 
     public create(): PongMusic {
-        return new PongMusic(this.game.add.audio('music'));
+        return new PongMusic(this.factory.audio('music'));
     }
 }
