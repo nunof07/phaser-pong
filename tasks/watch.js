@@ -13,6 +13,7 @@ import gulpWatch from 'gulp-watch';
 export function watch(glob, tasks) {
     return gulp
         .src(glob)
+        .pipe(plumber())
         .pipe(
             gulpWatch(
                 glob,
@@ -21,6 +22,5 @@ export function watch(glob, tasks) {
                     sequence(...tasks, done);
                 })
             )
-        )
-        .pipe(plumber());
+        );
 }

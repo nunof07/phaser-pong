@@ -14,7 +14,7 @@ export class GameState extends Phaser.State {
     private readonly ball: Ball;
     private readonly music: Music;
     private readonly scored: Phaser.Signal;
-    private isPaused: boolean;
+    //private isPaused: boolean;
 
     constructor() {
         super();
@@ -25,7 +25,7 @@ export class GameState extends Phaser.State {
         ];
         this.music = new Music(this);
         this.scored = new Phaser.Signal();
-        this.isPaused = true;
+        //this.isPaused = true;
     }
 
     public create(): void {

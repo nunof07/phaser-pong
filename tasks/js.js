@@ -22,6 +22,10 @@ export function js(config) {
     );
 
     return rollupStream(streamConfig)
+        .on('error', function(e) {
+            console.error(e.stack);
+            this.emit('end');
+        })
         .on('bundle', bundle => {
             cache = bundle;
         })
