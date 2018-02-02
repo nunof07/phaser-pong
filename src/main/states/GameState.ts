@@ -13,6 +13,8 @@ export class GameState extends Phaser.State {
     private readonly players: ReadonlyArray<Player>;
     private readonly ball: Ball;
     private readonly music: Music;
+    private readonly scored: Phaser.Signal;
+    private isPaused: boolean;
 
     constructor() {
         super();
@@ -22,6 +24,8 @@ export class GameState extends Phaser.State {
             new Computer(this, new Paddle(this), this.ball),
         ];
         this.music = new Music(this);
+        this.scored = new Phaser.Signal();
+        this.isPaused = true;
     }
 
     public create(): void {
@@ -72,5 +76,36 @@ export class GameState extends Phaser.State {
         this.game.sound.play('score');
         this.ball.reset(goLeft);
         this.music.pause();
+        this.scored.dispatch(player, goLeft);
     }
+
+    // private togglePause(): this {
+    //     if (this.isPaused) {
+    //         this.play();
+    //     } else {
+    //         this.pause();
+    //     }
+
+    //     return this;
+    // }
+
+    // public pause(): this {
+    //     if (!this.isPaused) {
+    //         this.music.pause();
+    //         this.ball.reset();
+    //         this.isPaused = true;
+    //     }
+
+    //     return this;
+    // }
+
+    // public play(): this {
+    //     if (!this.isPaused) {
+    //         this.music.play();
+    //         this.ball.launch();
+    //         this.isPaused = false;
+    //     }
+
+    //     return this;
+    // }
 }
