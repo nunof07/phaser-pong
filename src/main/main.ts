@@ -1,11 +1,11 @@
-import { StatefulGame } from '@main/core/StatefulGame';
+import { addStates } from '@main/core/state/addStates';
 import { BootState } from '@main/states/BootState';
 import { GameState } from '@main/states/GameState';
 
 /**
  * Start pong.
  */
-new StatefulGame(
+addStates(
     new Phaser.Game({
         width: 1024,
         height: 576,
@@ -33,5 +33,4 @@ new StatefulGame(
         ),
         game: new GameState(),
     },
-    'boot',
-).start();
+).start('boot');

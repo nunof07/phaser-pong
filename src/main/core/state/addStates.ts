@@ -6,7 +6,7 @@ import * as Phaser from 'phaser-ce';
  * Add states.
  * @param maybeStateManager StateManager or has StateManager.
  */
-export function addState(maybeStateManager: MaybeStateManager, states: Record<string, Phaser.State>): Phaser.StateManager {
+export function addStates(maybeStateManager: MaybeStateManager, states: Record<string, Phaser.State>): Phaser.StateManager {
     const manager: Phaser.StateManager = stateManager(maybeStateManager);
 
     Object.keys(states).forEach((id: string) => {
