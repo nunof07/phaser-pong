@@ -1,12 +1,13 @@
 import { Factory } from '@main/core/Factory';
 import { Point } from '@main/core/Point';
 import { PongScore } from '@main/entities/score/PongScore';
+import { Score } from '@main/entities/score/Score';
 import * as Phaser from 'phaser-ce';
 
 /**
  * Create a score.
  */
-export class PongScoreFactory implements Factory {
+export class PongScoreFactory implements Factory<Score> {
     private readonly factory: Phaser.GameObjectFactory;
     private readonly location: Point;
 

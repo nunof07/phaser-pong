@@ -1,3 +1,4 @@
+import { arcadeBody } from '@main/core/physics/arcadeBody';
 import { Paddle } from '@main/entities/paddle/Paddle';
 import * as Phaser from 'phaser-ce';
 
@@ -15,7 +16,7 @@ export class PongPaddle implements Paddle {
         this.maxY = maxY;
     }
 
-    public move(y: number): this {
+    public setPositionY(y: number): this {
         this.sprite.y = y;
 
         if (this.sprite.y < this.minY) {
@@ -23,6 +24,12 @@ export class PongPaddle implements Paddle {
         } else if (this.sprite.y > this.maxY) {
             this.sprite.y = this.maxY;
         }
+
+        return this;
+    }
+
+    public setVelocityY(y: number): this {
+        arcadeBody(this.sprite).velocity.y = y;
 
         return this;
     }

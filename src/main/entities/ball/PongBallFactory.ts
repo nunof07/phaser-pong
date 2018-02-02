@@ -1,12 +1,13 @@
 import { Factory } from '@main/core/Factory';
 import { arcadeBody } from '@main/core/physics/arcadeBody';
+import { Ball } from '@main/entities/ball/Ball';
 import { PongBall } from '@main/entities/ball/PongBall';
 import * as Phaser from 'phaser-ce';
 
 /**
  * Create a ball.
  */
-export class PongBallFactory implements Factory {
+export class PongBallFactory implements Factory<Ball> {
     private readonly game: Phaser.Game;
 
     constructor(game: Phaser.Game) {

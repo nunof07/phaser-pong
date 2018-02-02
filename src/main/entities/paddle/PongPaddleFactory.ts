@@ -1,13 +1,14 @@
 import { Factory } from '@main/core/Factory';
 import { arcadeBody } from '@main/core/physics/arcadeBody';
 import { Point } from '@main/core/Point';
+import { Paddle } from '@main/entities/paddle/Paddle';
 import { PongPaddle } from '@main/entities/paddle/PongPaddle';
 import * as Phaser from 'phaser-ce';
 
 /**
  * Create a paddle.
  */
-export class PongPaddleFactory implements Factory {
+export class PongPaddleFactory implements Factory<Paddle> {
     private readonly game: Phaser.Game;
     private readonly location: Point;
 
