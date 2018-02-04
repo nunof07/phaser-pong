@@ -21,6 +21,7 @@ export class ComputerFactory implements Factory<Player> {
 
     public create(): Computer {
         return new Computer(
+            1,
             this.anchor,
             this.paddleFactory.create(),
             this.scoreFactory.create(),

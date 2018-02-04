@@ -39,7 +39,6 @@ export class GameState extends Phaser.State {
             entity.update();
         });
         // this.players.forEach((player: Player) => {
-        //     player.update();
         //     this.game.physics.arcade.collide(
         //         player.paddle.sprite,
         //         this.ball.sprite,
@@ -50,14 +49,6 @@ export class GameState extends Phaser.State {
         // if (this.ballBody.blocked.up || this.ballBody.blocked.down) {
         //     this.game.sound.play('wall');
         // }
-
-        // if (this.ballBody.blocked.left) {
-        //     this.score(this.players[1], false);
-        // }
-
-        // if (this.ballBody.blocked.right) {
-        //     this.score(this.players[0], true);
-        // }
     }
 
     // private get ballBody(): Phaser.Physics.Arcade.Body {
@@ -65,11 +56,8 @@ export class GameState extends Phaser.State {
     // }
 
     // public score(player: Player, goLeft: boolean): void {
-    //     player.score.increase();
     //     this.game.sound.play('score');
-    //     this.ball.reset(goLeft);
     //     this.music.pause();
-    //     this.scored.dispatch(player, goLeft);
     // }
 
     // private togglePause(): this {

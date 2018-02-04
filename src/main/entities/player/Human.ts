@@ -7,14 +7,20 @@ import * as Phaser from 'phaser-ce';
  * A human player.
  */
 export class Human implements Player {
+    private readonly idNumber: number;
     private readonly input: Phaser.Input;
     private readonly paddle: Paddle;
     private readonly scoreObj: Score;
 
-    constructor(input: Phaser.Input, paddle: Paddle, score: Score) {
+    constructor(id: number, input: Phaser.Input, paddle: Paddle, score: Score) {
+        this.idNumber = id;
         this.input = input;
         this.paddle = paddle;
         this.scoreObj = score;
+    }
+
+    public id(): number {
+        return this.idNumber;
     }
 
     public score(): Score {

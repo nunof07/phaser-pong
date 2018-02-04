@@ -3,6 +3,7 @@ import { PongMusicFactory } from '@main/entities/music/PongMusicFactory';
 import { PongPaddleFactory } from '@main/entities/paddle/PongPaddleFactory';
 import { ComputerFactory } from '@main/entities/player/ComputerFactory';
 import { HumanFactory } from '@main/entities/player/HumanFactory';
+import { PongRefereeFactory } from '@main/entities/referee/PongRefereeFactory';
 import { PongScoreFactory } from '@main/entities/score/PongScoreFactory';
 import { GameState } from '@main/states/GameState';
 import * as Phaser from 'phaser-ce';
@@ -48,5 +49,6 @@ export function createGameState(game: Phaser.Game): GameState {
                 },
             ),
         ),
+        new PongRefereeFactory(null, null),
     ]);
 }

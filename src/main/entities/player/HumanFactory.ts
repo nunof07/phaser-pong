@@ -21,6 +21,7 @@ export class HumanFactory implements Factory<Player> {
 
     public create(): Human {
         return new Human(
+            0,
             this.input,
             this.paddleFactory.create(),
             this.scoreFactory.create(),
