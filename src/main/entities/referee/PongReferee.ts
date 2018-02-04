@@ -8,10 +8,12 @@ import * as Phaser from 'phaser-ce';
  */
 export class PongReferee implements Referee {
     private readonly ball: Ball;
+    private readonly players: ReadonlyArray<Player>;
     private readonly scoredSignal: Phaser.Signal;
 
-    constructor(ball: Ball, scored: Phaser.Signal = new Phaser.Signal()) {
+    constructor(ball: Ball, players: ReadonlyArray<Player>, scored: Phaser.Signal = new Phaser.Signal()) {
         this.ball = ball;
+        this.players = players;
         this.scoredSignal = scored;
     }
 
@@ -19,6 +21,7 @@ export class PongReferee implements Referee {
         player.score().increase();
         const goLeft: boolean = (player.id() === 0);
         this.ball.reset(goLeft);
+        this.scoredSignal.dispatch(player);
 
         return this;
     }
@@ -28,6 +31,14 @@ export class PongReferee implements Referee {
     }
 
     public update(): this {
+        const ballBlocked: Phaser.Physics.Arcade.FaceChoices = this.ball.body().blocked;
+
+        if (ballBlocked.left) {
+            this.score(this.players[1]);
+        } else if (ballBlocked.right) {
+            this.score(this.players[0]);
+        }
+
         return this;
     }
 }

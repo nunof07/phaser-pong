@@ -1,3 +1,4 @@
+import { Joined } from '@main/core/iterable/Joined';
 import { PongBallFactory } from '@main/entities/ball/PongBallFactory';
 import { PongMusicFactory } from '@main/entities/music/PongMusicFactory';
 import { PongPaddleFactory } from '@main/entities/paddle/PongPaddleFactory';
@@ -12,11 +13,10 @@ import * as Phaser from 'phaser-ce';
  * Creates the game state.
  */
 export function createGameState(game: Phaser.Game): GameState {
-    return new GameState([
-        new PongBallFactory(game),
-        new PongMusicFactory(game.add),
+    const ball: PongBallFactory = new PongBallFactory(game);
+    const computer: ComputerFactory =
         new ComputerFactory(
-            null,
+            ball,
             new PongPaddleFactory(
                 game,
                 {
@@ -31,7 +31,8 @@ export function createGameState(game: Phaser.Game): GameState {
                     y: 128,
                 },
             ),
-        ),
+        );
+    const human: HumanFactory =
         new HumanFactory(
             game.input,
             new PongPaddleFactory(
@@ -48,7 +49,13 @@ export function createGameState(game: Phaser.Game): GameState {
                     y: 128,
                 },
             ),
-        ),
-        new PongRefereeFactory(null, null),
+        );
+
+    return new GameState([
+        ball,
+        new PongMusicFactory(game.add),
+        computer,
+        human,
+        new PongRefereeFactory(ball, new Joined([human, computer])),
     ]);
 }

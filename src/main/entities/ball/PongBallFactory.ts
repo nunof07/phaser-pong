@@ -7,11 +7,13 @@ import * as Phaser from 'phaser-ce';
 /**
  * Create a ball.
  */
-export class PongBallFactory implements Factory<Ball> {
+export class PongBallFactory implements Factory<Ball>, Iterable<Ball> {
     private readonly game: Phaser.Game;
+    private readonly entities: Set<Ball>;
 
     constructor(game: Phaser.Game) {
         this.game = game;
+        this.entities = new Set();
     }
 
     public create(): PongBall {
@@ -21,6 +23,13 @@ export class PongBallFactory implements Factory<Ball> {
         arcadeBody(sprite).bounce.setTo(1, 1);
         this.game.physics.arcade.enable(sprite);
 
-        return new PongBall(this.game.world, sprite);
+        const ball: PongBall = new PongBall(this.game.world, sprite);
+        this.entities.add(ball);
+
+        return ball;
+    }
+
+    public [Symbol.iterator](): Iterator<Ball> {
+        return this.entities.values();
     }
 }
