@@ -1,3 +1,6 @@
+import { Collection } from '@main/core/collection/Collection';
+import { Set } from '@main/core/collection/Set';
+import { WriteCollection } from '@main/core/collection/WriteCollection';
 import { Factory } from '@main/core/Factory';
 import { Paddle } from '@main/entities/paddle/Paddle';
 import { Human } from '@main/entities/player/Human';
@@ -8,17 +11,22 @@ import * as Phaser from 'phaser-ce';
 /**
  * Create a human player.
  */
-export class HumanFactory implements Factory<Player>, Iterable<Player> {
+export class HumanFactory implements Factory<Player>, Collection<Player> {
     private readonly input: Phaser.Input;
     private readonly paddleFactory: Factory<Paddle>;
     private readonly scoreFactory: Factory<Score>;
-    private readonly entities: Set<Player>;
+    private readonly entities: WriteCollection<Player>;
 
-    constructor(input: Phaser.Input, paddleFactory: Factory<Paddle>, scoreFactory: Factory<Score>) {
+    constructor(
+        input: Phaser.Input,
+        paddleFactory: Factory<Paddle>,
+        scoreFactory: Factory<Score>,
+        writer: WriteCollection<Player> = new Set<Player>(),
+    ) {
         this.input = input;
         this.paddleFactory = paddleFactory;
         this.scoreFactory = scoreFactory;
-        this.entities = new Set();
+        this.entities = writer;
     }
 
     public create(): Human {
@@ -33,7 +41,7 @@ export class HumanFactory implements Factory<Player>, Iterable<Player> {
         return human;
     }
 
-    public [Symbol.iterator](): Iterator<Player> {
+    public values(): Iterable<Player> {
         return this.entities.values();
     }
 }

@@ -1,9 +1,11 @@
-import { Joined } from '@main/core/iterable/Joined';
+import { Set } from '@main/core/collection/Set';
+import { WriteCollection } from '@main/core/collection/WriteCollection';
 import { PongBallFactory } from '@main/entities/ball/PongBallFactory';
 import { PongMusicFactory } from '@main/entities/music/PongMusicFactory';
 import { PongPaddleFactory } from '@main/entities/paddle/PongPaddleFactory';
 import { ComputerFactory } from '@main/entities/player/ComputerFactory';
 import { HumanFactory } from '@main/entities/player/HumanFactory';
+import { Player } from '@main/entities/player/Player';
 import { PongRefereeFactory } from '@main/entities/referee/PongRefereeFactory';
 import { PongScoreFactory } from '@main/entities/score/PongScoreFactory';
 import { GameState } from '@main/states/GameState';
@@ -13,6 +15,7 @@ import * as Phaser from 'phaser-ce';
  * Creates the game state.
  */
 export function createGameState(game: Phaser.Game): GameState {
+    const players: WriteCollection<Player> = new Set<Player>();
     const ball: PongBallFactory = new PongBallFactory(game);
     const computer: ComputerFactory =
         new ComputerFactory(
@@ -31,6 +34,7 @@ export function createGameState(game: Phaser.Game): GameState {
                     y: 128,
                 },
             ),
+            players,
         );
     const human: HumanFactory =
         new HumanFactory(
@@ -49,6 +53,7 @@ export function createGameState(game: Phaser.Game): GameState {
                     y: 128,
                 },
             ),
+            players,
         );
 
     return new GameState([
@@ -56,6 +61,6 @@ export function createGameState(game: Phaser.Game): GameState {
         new PongMusicFactory(game.add),
         computer,
         human,
-        new PongRefereeFactory(ball, new Joined([human, computer])),
+        new PongRefereeFactory(ball, players),
     ]);
 }

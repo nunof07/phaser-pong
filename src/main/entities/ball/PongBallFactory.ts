@@ -1,3 +1,6 @@
+import { Collection } from '@main/core/collection/Collection';
+import { Set } from '@main/core/collection/Set';
+import { WriteCollection } from '@main/core/collection/WriteCollection';
 import { Factory } from '@main/core/Factory';
 import { arcadeBody } from '@main/core/physics/arcadeBody';
 import { Ball } from '@main/entities/ball/Ball';
@@ -7,13 +10,13 @@ import * as Phaser from 'phaser-ce';
 /**
  * Create a ball.
  */
-export class PongBallFactory implements Factory<Ball>, Iterable<Ball> {
+export class PongBallFactory implements Factory<Ball>, Collection<Ball> {
     private readonly game: Phaser.Game;
-    private readonly entities: Set<Ball>;
+    private readonly entities: WriteCollection<Ball>;
 
-    constructor(game: Phaser.Game) {
+    constructor(game: Phaser.Game, writer: WriteCollection<Ball> = new Set<Ball>()) {
         this.game = game;
-        this.entities = new Set();
+        this.entities = writer;
     }
 
     public create(): PongBall {
@@ -29,7 +32,7 @@ export class PongBallFactory implements Factory<Ball>, Iterable<Ball> {
         return ball;
     }
 
-    public [Symbol.iterator](): Iterator<Ball> {
+    public values(): Iterable<Ball> {
         return this.entities.values();
     }
 }
