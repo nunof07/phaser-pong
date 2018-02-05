@@ -3,6 +3,7 @@ import { Unit } from '@main/core/collection/Unit';
 import { Factory } from '@main/core/Factory';
 import { Ball } from '@main/entities/ball/Ball';
 import { BallPaddleCollision } from '@main/entities/physics/BallPaddleCollision';
+import { PongBallPaddleCollision } from '@main/entities/physics/PongBallPaddleCollision';
 import { Player } from '@main/entities/player/Player';
 
 /**
@@ -20,7 +21,7 @@ export class BallPaddleCollisionFactory implements Factory<BallPaddleCollision> 
     }
 
     public create(): BallPaddleCollision {
-        return new BallPaddleCollision(
+        return new PongBallPaddleCollision(
             this.game,
             this.ball.value(),
             this.players.values().map((player: Player) => player.paddle()),
