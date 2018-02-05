@@ -8,7 +8,7 @@ import * as Phaser from 'phaser-ce';
  */
 export class PongBall implements Ball {
     private readonly world: Phaser.World;
-    private readonly sprite: Phaser.Sprite;
+    private readonly spriteObj: Phaser.Sprite;
     private readonly velocity: number;
     private goLeft: boolean;
 
@@ -19,14 +19,14 @@ export class PongBall implements Ball {
         goLeft: boolean = true,
     ) {
         this.world = world;
-        this.sprite = sprite;
+        this.spriteObj = sprite;
         this.velocity = velocity;
         this.goLeft = goLeft;
     }
 
     public reset(goLeft?: boolean): this {
-        this.sprite.x = this.world.centerX;
-        this.sprite.y = this.world.centerY;
+        this.spriteObj.x = this.world.centerX;
+        this.spriteObj.y = this.world.centerY;
         this.body().velocity.setTo(0, 0);
         this.goLeft = goLeft === undefined ? this.goLeft : goLeft;
 
@@ -42,8 +42,12 @@ export class PongBall implements Ball {
         return this;
     }
 
+    public sprite(): Phaser.Sprite {
+        return this.spriteObj;
+    }
+
     public body(): Phaser.Physics.Arcade.Body {
-        return arcadeBody(this.sprite);
+        return arcadeBody(this.spriteObj);
     }
 
     public update(): this {

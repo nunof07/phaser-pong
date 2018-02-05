@@ -41,7 +41,7 @@ export class HumanFactory implements Factory<Player>, Collection<Player> {
         return human;
     }
 
-    public values(): Iterable<Player> {
+    public values(): ReadonlyArray<Player> {
         return this.entities.values();
     }
 }

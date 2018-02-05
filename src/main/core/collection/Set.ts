@@ -17,7 +17,7 @@ export class Set<T> implements WriteCollection<T> {
         return this;
     }
 
-    public values(): Iterable<T> {
+    public values(): ReadonlyArray<T> {
         return this.collection;
     }
 }

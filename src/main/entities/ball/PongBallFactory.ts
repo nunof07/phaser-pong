@@ -1,6 +1,6 @@
-import { Collection } from '@main/core/collection/Collection';
-import { Set } from '@main/core/collection/Set';
-import { WriteCollection } from '@main/core/collection/WriteCollection';
+import { Scalar } from '@main/core/collection/Scalar';
+import { Unit } from '@main/core/collection/Unit';
+import { WriteUnit } from '@main/core/collection/WriteUnit';
 import { Factory } from '@main/core/Factory';
 import { arcadeBody } from '@main/core/physics/arcadeBody';
 import { Ball } from '@main/entities/ball/Ball';
@@ -10,13 +10,13 @@ import * as Phaser from 'phaser-ce';
 /**
  * Create a ball.
  */
-export class PongBallFactory implements Factory<Ball>, Collection<Ball> {
+export class PongBallFactory implements Factory<Ball>, Unit<Ball> {
     private readonly game: Phaser.Game;
-    private readonly entities: WriteCollection<Ball>;
+    private readonly last: WriteUnit<Ball>;
 
-    constructor(game: Phaser.Game, writer: WriteCollection<Ball> = new Set<Ball>()) {
+    constructor(game: Phaser.Game, writer: WriteUnit<Ball> = new Scalar<Ball>()) {
         this.game = game;
-        this.entities = writer;
+        this.last = writer;
     }
 
     public create(): PongBall {
@@ -27,12 +27,12 @@ export class PongBallFactory implements Factory<Ball>, Collection<Ball> {
         this.game.physics.arcade.enable(sprite);
 
         const ball: PongBall = new PongBall(this.game.world, sprite);
-        this.entities.add(ball);
+        this.last.update(ball);
 
         return ball;
     }
 
-    public values(): Iterable<Ball> {
-        return this.entities.values();
+    public value(): Ball {
+        return this.last.value();
     }
 }

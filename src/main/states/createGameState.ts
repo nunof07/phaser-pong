@@ -3,6 +3,7 @@ import { WriteCollection } from '@main/core/collection/WriteCollection';
 import { PongBallFactory } from '@main/entities/ball/PongBallFactory';
 import { PongMusicFactory } from '@main/entities/music/PongMusicFactory';
 import { PongPaddleFactory } from '@main/entities/paddle/PongPaddleFactory';
+import { BallPaddleCollisionFactory } from '@main/entities/physics/BallPaddleCollisionFactory';
 import { ComputerFactory } from '@main/entities/player/ComputerFactory';
 import { HumanFactory } from '@main/entities/player/HumanFactory';
 import { Player } from '@main/entities/player/Player';
@@ -62,5 +63,6 @@ export function createGameState(game: Phaser.Game): GameState {
         computer,
         human,
         new PongRefereeFactory(ball, players),
+        new BallPaddleCollisionFactory(game, ball, players),
     ]);
 }

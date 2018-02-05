@@ -6,32 +6,36 @@ import * as Phaser from 'phaser-ce';
  * Pong paddle.
  */
 export class PongPaddle implements Paddle {
-    private readonly sprite: Phaser.Sprite;
+    private readonly spriteObj: Phaser.Sprite;
     private readonly minY: number;
     private readonly maxY: number;
 
     constructor(sprite: Phaser.Sprite, minY: number, maxY: number) {
-        this.sprite = sprite;
+        this.spriteObj = sprite;
         this.minY = minY;
         this.maxY = maxY;
     }
 
     public setPositionY(y: number): this {
-        this.sprite.y = y;
+        this.spriteObj.y = y;
 
-        if (this.sprite.y < this.minY) {
-            this.sprite.y = this.minY;
-        } else if (this.sprite.y > this.maxY) {
-            this.sprite.y = this.maxY;
+        if (this.spriteObj.y < this.minY) {
+            this.spriteObj.y = this.minY;
+        } else if (this.spriteObj.y > this.maxY) {
+            this.spriteObj.y = this.maxY;
         }
 
         return this;
     }
 
     public setVelocityY(y: number): this {
-        arcadeBody(this.sprite).velocity.y = y;
+        arcadeBody(this.spriteObj).velocity.y = y;
 
         return this;
+    }
+
+    public sprite(): Phaser.Sprite {
+        return this.spriteObj;
     }
 
     public update(): this {

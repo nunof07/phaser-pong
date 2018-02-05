@@ -6,4 +6,5 @@ import { Entity } from '@main/core/Entity';
 export interface Paddle extends Entity {
     setPositionY(y: number): this;
     setVelocityY(y: number): this;
+    sprite(): Phaser.Sprite;
 }

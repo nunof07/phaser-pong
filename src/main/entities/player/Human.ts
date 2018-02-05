@@ -9,13 +9,13 @@ import * as Phaser from 'phaser-ce';
 export class Human implements Player {
     private readonly idNumber: number;
     private readonly input: Phaser.Input;
-    private readonly paddle: Paddle;
+    private readonly paddleObj: Paddle;
     private readonly scoreObj: Score;
 
     constructor(id: number, input: Phaser.Input, paddle: Paddle, score: Score) {
         this.idNumber = id;
         this.input = input;
-        this.paddle = paddle;
+        this.paddleObj = paddle;
         this.scoreObj = score;
     }
 
@@ -27,8 +27,12 @@ export class Human implements Player {
         return this.scoreObj;
     }
 
+    public paddle(): Paddle {
+        return this.paddleObj;
+    }
+
     public update(): this {
-        this.paddle.setPositionY(this.input.y);
+        this.paddleObj.setPositionY(this.input.y);
 
         return this;
     }
