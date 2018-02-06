@@ -1,6 +1,6 @@
 import { Factory } from '@main/core/Factory';
-import { Music } from '@main/entities/music/Music';
-import { PongMusic } from '@main/entities/music/PongMusic';
+import { Music } from '@main/entities/audio/Music';
+import { PongMusic } from '@main/entities/audio/PongMusic';
 import * as Phaser from 'phaser-ce';
 
 /**
@@ -13,7 +13,7 @@ export class PongMusicFactory implements Factory<Music> {
         this.factory = factory;
     }
 
-    public create(): PongMusic {
+    public create(): Music {
         return new PongMusic(this.factory.audio('music'));
     }
 }

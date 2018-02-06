@@ -33,7 +33,9 @@ export class PongBallPaddleCollision implements BallPaddleCollision {
             this.game.physics.arcade.collide(
                 paddle.sprite(),
                 this.ball.sprite(),
-                () => this.collidedObj.dispatch(),
+                () => {
+                    this.collidedObj.dispatch();
+                },
                 undefined,
                 this,
             );

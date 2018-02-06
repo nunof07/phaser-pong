@@ -19,14 +19,14 @@ export class PongBallFactory implements Factory<Ball>, Unit<Ball> {
         this.last = writer;
     }
 
-    public create(): PongBall {
+    public create(): Ball {
         const sprite: Phaser.Sprite = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ball');
         sprite.anchor.setTo(0.5, 0.5);
         arcadeBody(sprite).collideWorldBounds = true;
         arcadeBody(sprite).bounce.setTo(1, 1);
         this.game.physics.arcade.enable(sprite);
 
-        const ball: PongBall = new PongBall(this.game.world, sprite);
+        const ball: Ball = new PongBall(this.game.world, sprite);
         this.last.update(ball);
 
         return ball;

@@ -10,16 +10,19 @@ export class PongBall implements Ball {
     private readonly world: Phaser.World;
     private readonly spriteObj: Phaser.Sprite;
     private readonly velocity: number;
+    private readonly blockedObj: Phaser.Signal;
     private goLeft: boolean;
 
     constructor(
         world: Phaser.World,
         sprite: Phaser.Sprite,
+        blocked: Phaser.Signal = new Phaser.Signal(),
         velocity: number = 400,
         goLeft: boolean = true,
     ) {
         this.world = world;
         this.spriteObj = sprite;
+        this.blockedObj = blocked;
         this.velocity = velocity;
         this.goLeft = goLeft;
     }
@@ -48,6 +51,10 @@ export class PongBall implements Ball {
 
     public body(): Phaser.Physics.Arcade.Body {
         return arcadeBody(this.spriteObj);
+    }
+
+    public blocked(): Phaser.Signal {
+        return this.blockedObj;
     }
 
     public update(): this {

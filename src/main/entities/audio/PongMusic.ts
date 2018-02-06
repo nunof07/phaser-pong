@@ -1,4 +1,4 @@
-import { Music } from '@main/entities/music/Music';
+import { Music } from '@main/entities/audio/Music';
 import * as Phaser from 'phaser-ce';
 
 /**

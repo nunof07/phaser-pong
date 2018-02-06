@@ -29,7 +29,7 @@ export class HumanFactory implements Factory<Player>, Collection<Player> {
         this.entities = writer;
     }
 
-    public create(): Human {
+    public create(): Player {
         const human: Human = new Human(
             0,
             this.input,

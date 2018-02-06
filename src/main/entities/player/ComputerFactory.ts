@@ -30,7 +30,7 @@ export class ComputerFactory implements Factory<Player>, Collection<Player> {
         this.entities = writer;
     }
 
-    public create(): Computer {
+    public create(): Player {
         const computer: Computer = new Computer(
             1,
             this.ball.value().body().velocity,

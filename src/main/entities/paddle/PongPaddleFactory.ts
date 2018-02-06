@@ -17,7 +17,7 @@ export class PongPaddleFactory implements Factory<Paddle> {
         this.location = location;
     }
 
-    public create(): PongPaddle {
+    public create(): Paddle {
         const sprite: Phaser.Sprite = this.game.add.sprite(this.location.x, this.location.y, 'paddle');
         sprite.anchor.setTo(0.5, 0.5);
         this.game.physics.arcade.enable(sprite);

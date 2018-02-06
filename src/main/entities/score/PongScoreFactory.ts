@@ -16,7 +16,7 @@ export class PongScoreFactory implements Factory<Score> {
         this.location = location;
     }
 
-    public create(): PongScore {
+    public create(): Score {
         return new PongScore(
             this.factory.bitmapText(
                 Math.floor(this.location.x),

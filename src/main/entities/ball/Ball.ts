@@ -9,4 +9,5 @@ export interface Ball extends Entity {
     launch(): Ball;
     sprite(): Phaser.Sprite;
     body(): Phaser.Physics.Arcade.Body;
+    blocked(): Phaser.Signal;
 }
