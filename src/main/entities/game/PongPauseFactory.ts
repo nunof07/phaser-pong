@@ -4,7 +4,6 @@ import { WriteUnit } from '@main/core/collection/WriteUnit';
 import { Factory } from '@main/core/Factory';
 import { Pause } from '@main/entities/game/Pause';
 import { PongPause } from '@main/entities/game/PongPause';
-import { Referee } from '@main/entities/referee/Referee';
 import * as Phaser from 'phaser-ce';
 
 /**

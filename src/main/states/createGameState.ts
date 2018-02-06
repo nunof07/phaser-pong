@@ -69,8 +69,9 @@ export function createGameState(game: Phaser.Game): GameState {
     const collision: BallPaddleCollisionFactory = new BallPaddleCollisionFactory(game, ball, players);
 
     return new GameState([
-        ball,
         new PongMusicFactory(game.add),
+        pause,
+        ball,
         createComputerFactory(game, ball, players),
         createHumanFactory(game, players),
         referee,
