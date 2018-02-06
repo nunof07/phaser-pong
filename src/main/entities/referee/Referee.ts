@@ -8,4 +8,5 @@ import * as Phaser from 'phaser-ce';
 export interface Referee extends Entity {
     score(player: Player): this;
     scored(): Phaser.Signal;
+    start(): this;
 }

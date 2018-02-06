@@ -7,6 +7,7 @@ import * as Phaser from 'phaser-ce';
 export interface Ball extends Entity {
     reset(goLeft?: boolean): Ball;
     launch(): Ball;
+    isLaunched(): boolean;
     sprite(): Phaser.Sprite;
     body(): Phaser.Physics.Arcade.Body;
     blocked(): Phaser.Signal;

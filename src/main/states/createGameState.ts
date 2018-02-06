@@ -5,6 +5,7 @@ import { PongMusicFactory } from '@main/entities/audio/PongMusicFactory';
 import { PongSoundFxFactory } from '@main/entities/audio/PongSoundFxFactory';
 import { Ball } from '@main/entities/ball/Ball';
 import { PongBallFactory } from '@main/entities/ball/PongBallFactory';
+import { PongPauseFactory } from '@main/entities/game/PongPauseFactory';
 import { PongPaddleFactory } from '@main/entities/paddle/PongPaddleFactory';
 import { BallPaddleCollisionFactory } from '@main/entities/physics/BallPaddleCollisionFactory';
 import { ComputerFactory } from '@main/entities/player/ComputerFactory';
@@ -63,7 +64,8 @@ function createComputerFactory(game: Phaser.Game, ball: Unit<Ball>, players: Wri
 export function createGameState(game: Phaser.Game): GameState {
     const players: WriteCollection<Player> = new Set<Player>();
     const ball: PongBallFactory = new PongBallFactory(game);
-    const referee: PongRefereeFactory = new PongRefereeFactory(ball, players);
+    const pause: PongPauseFactory = new PongPauseFactory(game);
+    const referee: PongRefereeFactory = new PongRefereeFactory(ball, players, pause);
     const collision: BallPaddleCollisionFactory = new BallPaddleCollisionFactory(game, ball, players);
 
     return new GameState([

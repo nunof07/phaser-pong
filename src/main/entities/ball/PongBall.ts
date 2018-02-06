@@ -11,6 +11,7 @@ export class PongBall implements Ball {
     private readonly spriteObj: Phaser.Sprite;
     private readonly velocity: number;
     private readonly blockedObj: Phaser.Signal;
+    private isLaunchedFlag: boolean;
     private goLeft: boolean;
 
     constructor(
@@ -25,6 +26,7 @@ export class PongBall implements Ball {
         this.blockedObj = blocked;
         this.velocity = velocity;
         this.goLeft = goLeft;
+        this.isLaunchedFlag = false;
     }
 
     public reset(goLeft?: boolean): this {
@@ -32,6 +34,7 @@ export class PongBall implements Ball {
         this.spriteObj.y = this.world.centerY;
         this.body().velocity.setTo(0, 0);
         this.goLeft = goLeft === undefined ? this.goLeft : goLeft;
+        this.isLaunchedFlag = false;
 
         return this;
     }
@@ -41,8 +44,13 @@ export class PongBall implements Ball {
         const yMultiplier: number = randomBool() ? -1 : 1;
         this.body().velocity.x = xMultiplier * this.velocity;
         this.body().velocity.y = yMultiplier * this.velocity;
+        this.isLaunchedFlag = true;
 
         return this;
+    }
+
+    public isLaunched(): boolean {
+        return this.isLaunchedFlag;
     }
 
     public sprite(): Phaser.Sprite {
@@ -58,6 +66,10 @@ export class PongBall implements Ball {
     }
 
     public update(): this {
+        if (!this.body().blocked.none) {
+            this.blockedObj.dispatch(this.body().blocked);
+        }
+
         return this;
     }
 }

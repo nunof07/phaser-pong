@@ -14,6 +14,10 @@ export class PongMusicFactory implements Factory<Music> {
     }
 
     public create(): Music {
-        return new PongMusic(this.factory.audio('music'));
+        const music: Music = new PongMusic(this.factory.audio('music'));
+
+        music.play();
+
+        return music;
     }
 }
