@@ -34,6 +34,12 @@ export class PongPaddle implements Paddle {
         return this;
     }
 
+    public setMaxVelocityY(y: number): this {
+        arcadeBody(this.spriteObj).maxVelocity.y = y;
+
+        return this;
+    }
+
     public sprite(): Phaser.Sprite {
         return this.spriteObj;
     }

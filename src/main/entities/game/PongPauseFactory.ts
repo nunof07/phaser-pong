@@ -25,6 +25,7 @@ export class PongPauseFactory implements Factory<Pause>, Unit<Pause> {
         this.game.input.onDown.add(() => {
             pause.toggle();
         });
+        this.last.update(pause);
 
         return pause;
     }

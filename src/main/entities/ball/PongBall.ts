@@ -18,7 +18,7 @@ export class PongBall implements Ball {
         world: Phaser.World,
         sprite: Phaser.Sprite,
         blocked: Phaser.Signal = new Phaser.Signal(),
-        velocity: number = 400,
+        velocity: number = 510,
         goLeft: boolean = true,
     ) {
         this.world = world;

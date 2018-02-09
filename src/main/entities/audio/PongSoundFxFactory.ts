@@ -11,13 +11,13 @@ import * as Phaser from 'phaser-ce';
  * Create sound effects.
  */
 export class PongSoundFxFactory implements Factory<SoundFx> {
-    private readonly sound: Phaser.SoundManager;
+    private readonly sound: Unit<Phaser.SoundManager>;
     private readonly ball: Unit<Ball>;
     private readonly ballPaddleCollsion: Unit<BallPaddleCollision>;
     private readonly referee: Unit<Referee>;
 
     constructor(
-        sound: Phaser.SoundManager,
+        sound: Unit<Phaser.SoundManager>,
         ball: Unit<Ball>,
         ballPaddleCollsion: Unit<BallPaddleCollision>,
         referee: Unit<Referee>,
@@ -29,7 +29,7 @@ export class PongSoundFxFactory implements Factory<SoundFx> {
     }
 
     public create(): SoundFx {
-        const fx: PongSoundFx = new PongSoundFx(this.sound);
+        const fx: PongSoundFx = new PongSoundFx(this.sound.value());
 
         this.ballPaddleCollsion.value().collided().add((): void => {
             fx.playHit();

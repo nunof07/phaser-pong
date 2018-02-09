@@ -1,5 +1,6 @@
 import { Collection } from '@main/core/collection/Collection';
 import { Set } from '@main/core/collection/Set';
+import { Unit } from '@main/core/collection/Unit';
 import { WriteCollection } from '@main/core/collection/WriteCollection';
 import { Factory } from '@main/core/Factory';
 import { Paddle } from '@main/entities/paddle/Paddle';
@@ -12,13 +13,13 @@ import * as Phaser from 'phaser-ce';
  * Create a human player.
  */
 export class HumanFactory implements Factory<Player>, Collection<Player> {
-    private readonly input: Phaser.Input;
+    private readonly input: Unit<Phaser.Input>;
     private readonly paddleFactory: Factory<Paddle>;
     private readonly scoreFactory: Factory<Score>;
     private readonly entities: WriteCollection<Player>;
 
     constructor(
-        input: Phaser.Input,
+        input: Unit<Phaser.Input>,
         paddleFactory: Factory<Paddle>,
         scoreFactory: Factory<Score>,
         writer: WriteCollection<Player> = new Set<Player>(),
@@ -32,7 +33,7 @@ export class HumanFactory implements Factory<Player>, Collection<Player> {
     public create(): Player {
         const human: Human = new Human(
             0,
-            this.input,
+            this.input.value(),
             this.paddleFactory.create(),
             this.scoreFactory.create(),
         );

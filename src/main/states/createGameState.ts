@@ -1,6 +1,8 @@
 import { Set } from '@main/core/collection/Set';
+import { Task } from '@main/core/collection/Task';
 import { Unit } from '@main/core/collection/Unit';
 import { WriteCollection } from '@main/core/collection/WriteCollection';
+import { Point } from '@main/core/Point';
 import { PongMusicFactory } from '@main/entities/audio/PongMusicFactory';
 import { PongSoundFxFactory } from '@main/entities/audio/PongSoundFxFactory';
 import { Ball } from '@main/entities/ball/Ball';
@@ -18,20 +20,24 @@ import * as Phaser from 'phaser-ce';
 
 function createHumanFactory(game: Phaser.Game, players: WriteCollection<Player>): HumanFactory {
     return new HumanFactory(
-        game.input,
+        new Task((): Phaser.Input => game.input),
         new PongPaddleFactory(
             game,
-            {
-                x: 0,
-                y: game.world.centerY,
-            },
+            new Task((): Point => {
+                return {
+                    x: 0,
+                    y: game.world.centerY,
+                };
+            }),
         ),
         new PongScoreFactory(
-            game.add,
-            {
-                x: 128,
-                y: 128,
-            },
+            new Task((): Phaser.GameObjectFactory => game.add),
+            new Task((): Point => {
+                return {
+                    x: 128,
+                    y: 128,
+                };
+            }),
         ),
         players,
     );
@@ -42,17 +48,21 @@ function createComputerFactory(game: Phaser.Game, ball: Unit<Ball>, players: Wri
         ball,
         new PongPaddleFactory(
             game,
-            {
-                x: game.world.width - 8,
-                y: game.world.centerY,
-            },
+            new Task((): Point => {
+                return {
+                    x: game.world.width - 8,
+                    y: game.world.centerY,
+                };
+            }),
         ),
         new PongScoreFactory(
-            game.add,
-            {
-                x: game.world.width - 128,
-                y: 128,
-            },
+            new Task((): Phaser.GameObjectFactory => game.add),
+            new Task((): Point => {
+                return {
+                    x: game.world.width - 128,
+                    y: 128,
+                };
+            }),
         ),
         players,
     );
@@ -69,13 +79,18 @@ export function createGameState(game: Phaser.Game): GameState {
     const collision: BallPaddleCollisionFactory = new BallPaddleCollisionFactory(game, ball, players);
 
     return new GameState([
-        new PongMusicFactory(game.add),
+        new PongMusicFactory(new Task((): Phaser.GameObjectFactory => game.add)),
         pause,
         ball,
         createComputerFactory(game, ball, players),
         createHumanFactory(game, players),
         referee,
         collision,
-        new PongSoundFxFactory(game.sound, ball, collision, referee),
+        new PongSoundFxFactory(
+            new Task((): Phaser.SoundManager => game.sound),
+            ball,
+            collision,
+            referee,
+        ),
     ]);
 }

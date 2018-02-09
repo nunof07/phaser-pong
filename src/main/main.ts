@@ -15,7 +15,7 @@ const game: Phaser.Game = new Phaser.Game({
 addStates(
     game,
     {
-        boot: createBootState(),
+        boot: createBootState('game'),
         game: createGameState(game),
     },
 ).start('boot');

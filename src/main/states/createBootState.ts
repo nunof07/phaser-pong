@@ -2,10 +2,11 @@ import { BootState } from '@main/states/BootState';
 
 /**
  * Creates the boot state.
+ * @param nextState Next state to load after boot.
  */
-export function createBootState(): BootState {
+export function createBootState(nextState: string): BootState {
     return new BootState(
-        'game',
+        nextState,
         {
             image: [
                 { key: 'paddle', url: 'images/paddle.png' },

@@ -21,10 +21,10 @@ export class PongBallFactory implements Factory<Ball>, Unit<Ball> {
 
     public create(): Ball {
         const sprite: Phaser.Sprite = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ball');
+        this.game.physics.arcade.enable(sprite);
         sprite.anchor.setTo(0.5, 0.5);
         arcadeBody(sprite).collideWorldBounds = true;
         arcadeBody(sprite).bounce.setTo(1, 1);
-        this.game.physics.arcade.enable(sprite);
 
         const ball: Ball = new PongBall(this.game.world, sprite);
         this.last.update(ball);
