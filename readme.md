@@ -39,3 +39,7 @@ See `package.json` and `gulpfile.babel.js` for other tasks.
 - [Bitmap Font Generator](http://www.angelcode.com/products/bmfont/): to create bitmap fonts from TrueType.
 - [Bfxr](http://www.bfxr.net/): to create sound effects.
 - [Piskel](http://www.piskelapp.com/): to draw sprites.
+
+## Project stats
+
+- 86 hours to complete.
